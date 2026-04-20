@@ -2,6 +2,7 @@
 
 namespace RhysLees\NovaAbout;
 
+use Composer\InstalledVersions;
 use Illuminate\Foundation\Console\AboutCommand;
 
 class NovaAbout
@@ -15,7 +16,7 @@ class NovaAbout
     public static function addPackage($packageName)
     {
         try {
-            $packageVersion = \Composer\InstalledVersions::getVersion($packageName);
+            $packageVersion = InstalledVersions::getVersion($packageName);
         } catch (\Exception $e) {
             $packageVersion = $e->getMessage();
         }
